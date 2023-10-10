@@ -1,0 +1,96 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8049",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/words": {
+      "get": {
+        "tags": [
+          "words-rest-controller"
+        ],
+        "operationId": "getAll",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "example": [
+                  "eos",
+                  "sint",
+                  "recusandae",
+                  "et"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "words-rest-controller"
+        ],
+        "operationId": "createOne",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "recusandae"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/words/{index}": {
+      "get": {
+        "tags": [
+          "words-rest-controller"
+        ],
+        "operationId": "getByIndex",
+        "parameters": [
+          {
+            "name": "index",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "recusandae"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {}
+}
